@@ -79,14 +79,16 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+#export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+df_set_prompt $'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  # cool color coded prompt w/ git info.
-  #export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+    # cool color coded prompt w/ git info.
+    #export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+    df_set_prompt "%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 
-  # my normal prompt.
-  export RPROMPT=' %B%t%b'     # prompt for right side of screen
-  export PROMPT="%B`uname -s`| %n@%m%b > "
+    # my normal prompt.
+    #export RPROMPT=' %B%t%b'     # prompt for right side of screen
+    #export PROMPT="%B`uname -s`| %n@%m%b > "
 }
 
 precmd() {

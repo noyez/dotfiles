@@ -4,6 +4,32 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/source
 
+function df_set_prompt () {
+    if [ $PS1 = "%m%# " ]; then
+        #echo "using default prompt"
+        export PROMPT=$1
+    #else
+    #    echo "using custom prompt"
+    fi
+}
+
+function df_set_prompt_f () {
+    export PROMPT=$1
+}
+
+function df_set_rprompt () {
+    if [ -z $RPROMPT ]; then
+    #    echo "using default rprompt"
+        export RPROMPT=$1
+    #else
+    #    echo "using custom rprompt"
+    fi
+}
+
+function df_set_rprompt_f () {
+    export RPROMPT=$1
+}
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
@@ -24,7 +50,8 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  source $file
+    #echo "sourcing $file"
+    source $file
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded

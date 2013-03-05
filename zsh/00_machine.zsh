@@ -4,3 +4,7 @@ if [ `hostname` = "bkn" ]; then
     source ~/.zshrc_android
     hosts=(isr.bc.edu ithryn.net myth 192.168.1.1 192.168.1.3)
 fi
+
+if [ `hostname` = "bRadical" ]; then
+    echo " -- on host `hostname` -- "
+fi

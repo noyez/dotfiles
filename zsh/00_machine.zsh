@@ -1,10 +1,9 @@
 
 if [ `hostname` = "bkn" ]; then
-    echo " -- on host bkn -- "
-    source ~/.zshrc_android
-    hosts=(isr.bc.edu ithryn.net myth 192.168.1.1 192.168.1.3)
-fi
-
-if [ `hostname` = "bRadical" ]; then
     echo " -- on host `hostname` -- "
+    source ~/.zshrc_android
+elif [ `hostname` = "bRadical" ]; then
+    echo " -- on host `hostname` -- "
+else 
+    echo " -- on host `hostname` (not custom section) -- "
 fi

@@ -1,0 +1,57 @@
+"set path="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/brad/local/bin:/hosts/ithryn/bin:/opt/local/bin:/usr/texbin"
+set path="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/brad/local/bin:/hosts/ithryn/bin:/opt/local/bin:/usr/texbin"
+
+syntax on
+
+"make space a page down
+map <Space> <PageDown>
+
+"Display a status-line
+"set statusline=~
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+set statusline=%F%m%r%h%w\ [line=%04l,col=%04v][%p%%]
+
+
+"map something to pdflatex
+:map <C-p> :w<CR>:!pdflatex %<CR>
+":map <Leader> :w<CR>:!pdflatex %<CR>
+
+
+"Default tab for 4
+set ts=4
+
+"Default backspace like normal
+set bs=2
+
+"Terminal for 80 char ? so vim can play till 79 char.
+set textwidth=79
+
+"Some option desactivate by default (remove the no).
+set backup
+set nohlsearch
+set noincsearch
+"this will expand tabs to spaces
+set expandtab
+
+
+"Show the position of the cursor.
+set ruler
+
+"Show matching parenthese.
+"set showmatch
+
+" disable ex mode
+:map Q <Nop>
+
+" for pathogen ... see: https://github.com/tpope/vim-pathogen
+"execute pathogen#infect()
+
+" for dox plugin
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  " 
+let g:DoxygenToolkit_paramTag_pre="@Param " 
+let g:DoxygenToolkit_returnTag="@Returns   " 
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------" 
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------" 
+let g:DoxygenToolkit_authorName="Bradley Noyes" 
+let g:DoxygenToolkit_licenseTag="My own license"
+ 

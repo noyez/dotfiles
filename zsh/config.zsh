@@ -6,8 +6,19 @@ else
     df_set_prompt '%3~$(git_info_for_prompt)%# '
 fi
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
+#export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+
+# Use hard limits, except for a smaller stack and no core dumps
+unlimit
+limit stack 8192
+limit core 0
+limit -s
+
+umask 002
+
+# automatically remove duplicates from these arrays
+typeset -U path cdpath fpath manpath
 
 fpath=($ZSH/zsh/functions $fpath)
 
@@ -49,6 +60,33 @@ setopt HIST_REDUCE_BLANKS
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
 setopt complete_aliases
+
+MAILCHECK=30
+HISTSIZE=200
+DIRSTACKSIZE=20
+
+# Watch for my friends
+#watch=( $(<~/.friends) )       # watch for people in .friends file
+watch=(notme)                   # watch for everybody but me
+LOGCHECK=30                     # check every 30 secs for login/logout activity
+#LOGCHECK=300                    # check every 5 min for login/logout activity
+WATCHFMT='%n %a %l from %m at %t.'
+
+# Set/unset  shell options
+setopt   notify globdots correct pushdtohome cdablevars autolist
+setopt   correctall autocd recexact longlistjobs
+setopt   autoresume histignoredups pushdsilent noclobber
+setopt   autopushd pushdminus extendedglob rcquotes mailwarning
+unsetopt bgnice autoparamslash
+# this is an attempt to stop some autocorrects w/ sudo
+unsetopt correctall
+
+# Autoload zsh modules when they are referenced
+zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+zmodload -ap zsh/mapfile mapfile
+
 
 zle -N newtab
 

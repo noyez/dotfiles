@@ -18,6 +18,10 @@ alias ls='ls -B'
 alias ll='ls -l'
 alias la='ls -a'
 alias last='last -a'
+alias macvim='~/LocalApplications/MacVim.app/Contents/MacOS/Vim -g'
+alias gn=growlnotify
+#alias last='last -a'
+#alias qmake=qmake-mac
 
 # List only directories and symbolic
 # links that point to directories
@@ -26,11 +30,10 @@ alias lsd='ls -ld *(-/DN)'
 # List only file beginning with "."
 alias lsa='ls -ld .*'
 
+alias a=alias
+
 # Global aliases -- These do not have to be
 # at the beginning of the command line.
 alias -g M='|more'
 alias -g H='|head'
 alias -g T='|tail'
-
-alias a=alias
-

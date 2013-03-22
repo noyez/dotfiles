@@ -13,7 +13,7 @@ set statusline=%F%m%r%h%w\ [line=%04l,col=%04v][%p%%]
 
 
 "map something to pdflatex
-:map <C-p> :w<CR>:!pdflatex %<CR>
+":map <C-p> :w<CR>:!pdflatex %<CR>
 ":map <Leader> :w<CR>:!pdflatex %<CR>
 
 

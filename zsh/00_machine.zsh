@@ -1,7 +1,7 @@
 
 if [ `hostname` = "bkn" ]; then
     echo " -- on host `hostname` -- "
-    source ~/.zshrc_android
+#    source ~/.zshrc_android
 elif [ `hostname` = "bRadical" ]; then
     echo " -- on host `hostname` -- "
 else 

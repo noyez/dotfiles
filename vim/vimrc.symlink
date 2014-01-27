@@ -1,7 +1,20 @@
 "set path="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/brad/local/bin:/hosts/ithryn/bin:/opt/local/bin:/usr/texbin"
 set path="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/brad/local/bin:/hosts/ithryn/bin:/opt/local/bin:/usr/texbin"
 
+"
+" to reformat lines at 80 chars, do the following,
+" :set textwidth=80
+" select lines then hit 'gq'
+"
 syntax on
+
+"enable filetype plugin
+filetype plugin on
+"filetype plugin indent on
+
+" using for markdown plugin
+execute pathogen#infect()
+let g:vim_markdown_folding_disabled=1
 
 "make space a page down
 map <Space> <PageDown>
@@ -24,7 +37,8 @@ set ts=4
 set bs=2
 
 "Terminal for 80 char ? so vim can play till 79 char.
-set textwidth=79
+"set textwidth=79
+au BufRead,BufNewFile *.md setlocal textwidth=79
 
 "Some option desactivate by default (remove the no).
 set backup

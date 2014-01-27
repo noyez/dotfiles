@@ -47,48 +47,34 @@ need_push () {
   fi
 }
 
-rb_prompt(){
+ruby_version() {
   if (( $+commands[rbenv] ))
   then
-	  echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
-	else
-	  echo ""
+    echo "$(rbenv version | awk '{print $1}')"
+  fi
+
+  if (( $+commands[rvm-prompt] ))
+  then
+    echo "$(rvm-prompt | awk '{print $1}')"
   fi
 }
 
-# This keeps the number of todos always available the right hand side of my
-# command line. I filter it to only count those tagged as "+next", so it's more
-# of a motivation to clear out the list.
-todo(){
-  if (( $+commands[todo.sh] ))
+rb_prompt() {
+  if ! [[ -z "$(ruby_version)" ]]
   then
-    num=$(echo $(todo.sh ls +next | wc -l))
-    let todos=num-2
-    if [ $todos != 0 ]
-    then
-      echo "$todos"
-    else
-      echo ""
-    fi
+    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
   else
     echo ""
   fi
 }
 
-directory_name(){
+directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-#export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
-df_set_prompt $'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-    # cool color coded prompt w/ git info.
-    #export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
-    df_set_prompt "%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
-
-    # my normal prompt.
-    #export RPROMPT=' %B%t%b'     # prompt for right side of screen
-    #export PROMPT="%B`uname -s`| %n@%m%b > "
+  export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
 
 precmd() {

@@ -47,6 +47,14 @@ link_files () {
   success "linked $1 to $2"
 }
 
+install_oh_my_zsh() {
+  if [ -d "oh-my-zsh" ]; then
+    oh-my-zsh/tools/install.sh
+  else
+    echo "oh-my-zsh can't be found" 
+  fi
+}
+
 install_dotfiles () {
   info 'installing dotfiles'
 
@@ -116,6 +124,7 @@ install_dotfiles () {
 
 #setup_gitconfig
 install_dotfiles
+install_oh_my_zsh
 
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" = "Darwin" ]

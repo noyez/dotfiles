@@ -23,11 +23,15 @@ map <Space> <PageDown>
 "set statusline=~
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 set statusline=%F%m%r%h%w\ [line=%04l,col=%04v][%p%%]
+"set statusline=%{fugitive#statusline()}%F%m%r%h%w\ [line=%04l,col=%04v][%p%%]
 
 
 "map something to pdflatex
 ":map <C-p> :w<CR>:!pdflatex %<CR>
 ":map <Leader> :w<CR>:!pdflatex %<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 
 "Default tab for 4

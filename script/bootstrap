@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 #
 # bootstrap installs things.
 
 DOTFILES_ROOT="`pwd`"
 
-set -e
+#set -e
 
 echo ''
 
@@ -45,6 +45,17 @@ setup_gitconfig () {
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
+}
+
+install_oh_my_zsh() {
+  if [ -d "oh-my-zsh" ]; then
+    git submodule init && git submodule update && git submodule foreach git pull origin master
+    (cd oh-my-zsh && git checkout master )
+
+    oh-my-zsh/tools/install.sh
+  else
+    echo "oh-my-zsh can't be found" 
+  fi
 }
 
 install_dotfiles () {
@@ -116,6 +127,7 @@ install_dotfiles () {
 
 #setup_gitconfig
 install_dotfiles
+install_oh_my_zsh
 
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" == "Darwin" ]

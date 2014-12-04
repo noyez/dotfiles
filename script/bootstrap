@@ -53,9 +53,17 @@ install_oh_my_zsh() {
     (cd oh-my-zsh && git checkout master )
 
     oh-my-zsh/tools/install.sh
+    success "oh-my-zsh installed"
   else
-    echo "oh-my-zsh can't be found" 
+    fail "oh-my-zsh can't be found" 
   fi
+}
+
+install_vim_spf13() {
+    pushd
+    cd $HOME/.dotfiles/
+    curl http://j.mp/spf13-vim3 -L -o - | sh
+    popd
 }
 
 install_dotfiles () {
@@ -127,6 +135,7 @@ install_dotfiles () {
 
 #setup_gitconfig
 install_dotfiles
+install_vim_spf13
 install_oh_my_zsh
 
 # If we are on a mac, lets install and setup homebrew

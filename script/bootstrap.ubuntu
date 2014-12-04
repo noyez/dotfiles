@@ -58,6 +58,14 @@ install_oh_my_zsh() {
   fi
 }
 
+install_vim_spf13() {
+    pushd
+    cd $HOME/.dotfiles/
+    curl http://j.mp/spf13-vim3 -L -o - | sh
+    popd
+}
+
+
 install_dotfiles () {
   info 'installing dotfiles'
 
@@ -127,6 +135,7 @@ install_dotfiles () {
 
 #setup_gitconfig
 install_dotfiles
+install_vim_spf13
 install_oh_my_zsh
 
 # If we are on a mac, lets install and setup homebrew

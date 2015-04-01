@@ -1558,9 +1558,9 @@ nnoremap <silent> <unique> <Plug>SpellMenuAlternatives
       \ :SpellMenuAlternatives<CR>
 
 " Section: Default mappings {{{1
-if !hasmapto('<Plug>SpellCheck')
-  nmap <silent> <unique> <Leader>ss <Plug>SpellCheck
-endif
+""if !hasmapto('<Plug>SpellCheck')
+"  nmap <silent> <unique> <Leader>ss <Plug>SpellCheck
+"endif
 
 
 if !hasmapto('<Plug>SpellAutoEnable')
@@ -1571,9 +1571,9 @@ if !hasmapto('<Plug>SpellProposeAlternatives')
   nmap <silent> <unique> <Leader>s? <Plug>SpellProposeAlternatives
 endif
 
-if !hasmapto('<Plug>SpellChangeLanguage')
-  nmap <silent> <unique> <Leader>sl <Plug>SpellChangeLanguage
-endif
+""if !hasmapto('<Plug>SpellChangeLanguage')
+"  nmap <silent> <unique> <Leader>sl <Plug>SpellChangeLanguage
+"endif
 
 if &mousemodel =~ 'popup'
   amenu <silent> 1.8 PopUp.-SEPx- <nop>

@@ -1,0 +1,23 @@
+colorscheme autumn_b
+""colorscheme adam
+set nofoldenable                " disable code folding
+let g:DisableAutoPHPFolding = 1 " disable PIV's folding
+set nonumber
+set nocursorline
+UnBundle 'AutoClose'
+let g:autoclose_on = 0
+set mouse=v
+
+noremap j j
+noremap k k
+let g:airline_theme = 'badwolf'
+""let g:airline_theme = 'molokai'
+"let g:airline_section_a = airline#section#create_left(['mode', 'paste', 'capslock', 'iminsert'])
+let g:airline_section_b = airline#section#create(['branch'])
+"let g:airline_section_c = airline#section#create(['%<', 'file', spc, 'readonly'])
+"let g:airline_section_gutter = airline#section#create(['%='])
+let g:airline_section_x = ""
+let g:airline_section_y = ""
+"let g:airline_section_z = airline#section#create(['windowswap', '%3p%%'.spc, 'linenr', ':%3c '])
+"let g:airline_section_warning = airline#section#create(['syntastic', 'eclim', 'whitespace'])
+
